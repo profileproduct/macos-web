@@ -80,7 +80,8 @@
 
 	$effect(() => {
 		mouse_x;
-		if (preferences.reduced_motion || apps.is_being_dragged) return;
+		// Temporarily comment out the reduced motion check
+		// if (preferences.reduced_motion || apps.is_being_dragged) return;
 
 		raf = requestAnimationFrame(animate);
 	});
@@ -213,7 +214,8 @@
 		display: none;
 
 		&.dark {
-			--double-border: inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
+			--double-border:
+				inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
 				0 0 0 1.2px hsla(var(--system-color-light-hsl), 0.3);
 		}
 	}

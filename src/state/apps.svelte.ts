@@ -11,6 +11,7 @@ export const apps = $state({
 		// safari: false,
 		appstore: false,
 		calendar: false,
+		'wedding-photos': false,
 		// 'system-preferences': false,
 
 		'purus-twitter': false,
@@ -35,6 +36,7 @@ export const apps = $state({
 		// safari: 0,
 		appstore: 0,
 		calendar: 0,
+		'wedding-photos': 0,
 		// 'system-preferences': 0,
 
 		'purus-twitter': 0,
@@ -53,6 +55,7 @@ export const apps = $state({
 		// safari: false,
 		appstore: false,
 		calendar: false,
+		'wedding-photos': false,
 		// 'system-preferences': false,
 
 		'purus-twitter': false,

@@ -26,6 +26,10 @@
 	{#await import('./WallpaperApp/WallpaperSelectorApp.svelte') then { default: WallpaperSelector }}
 		<WallpaperSelector />
 	{/await}
+{:else if app_id === 'photos'}
+	{#await import('./Photos/Photos.svelte') then { default: Photos }}
+		<Photos />
+	{/await}
 {:else if app_id === 'purus-twitter'}
 	{#await import('./PurusProfile/PurusProfile.svelte') then { default: PurusProfile }}
 		<PurusProfile />

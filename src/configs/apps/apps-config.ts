@@ -24,7 +24,15 @@ const calendar = create_app_config({
 	title: 'Calendar',
 	resizable: true,
 });
+const photos = create_app_config({
+	title: 'Photos',
+	resizable: true,
 
+	height: 600,
+	width: 800,
+
+	dock_breaks_before: false, // Set to true if you want a separator before it in the dock
+});
 const vscode = create_app_config({
 	title: 'VSCode',
 	resizable: true,
@@ -90,6 +98,7 @@ export const apps_config = {
 	wallpapers,
 	calculator,
 	calendar,
+	photos,
 	vscode,
 	appstore,
 	// safari,
