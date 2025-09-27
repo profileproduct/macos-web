@@ -6,6 +6,7 @@
 	import ContextMenu from './ContextMenu.svelte';
 	import SystemUpdate from './SystemUpdate.svelte';
 	import WindowsArea from './Window/WindowsArea.svelte';
+	import DesktopItems from './DesktopItems.svelte';
 
 	const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 
@@ -24,7 +25,10 @@
 <div bind:this={mainEl} class="container">
 	<main>
 		<TopBar />
-		<WindowsArea />
+		<div class="desktop-content">
+			<WindowsArea />
+			<DesktopItems />
+		</div>
 		<Dock />
 	</main>
 
@@ -47,5 +51,11 @@
 
 		display: grid;
 		grid-template-rows: auto 1fr auto;
+	}
+
+	.desktop-content {
+		position: relative;
+		height: 100%;
+		width: 100%;
 	}
 </style>
