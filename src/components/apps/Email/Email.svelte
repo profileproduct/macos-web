@@ -1,14 +1,13 @@
 <script lang="ts">
-	// Svelte imports - removed onMount as it's not used
-	
-	// Icon imports using the existing icon system
+	import { onMount } from 'svelte';
+
+	// Optimized icon imports - only load what we need initially
 	import Archive from '~icons/ic/outline-archive';
 	import ArrowLeft from '~icons/ic/outline-arrow-back';
 	import Bell from '~icons/ic/outline-notifications';
 	import Check from '~icons/ic/outline-check';
-	import ChevronDown from '~icons/ic/outline-keyboard-arrow-down';
 	import Command from '~icons/ic/outline-terminal';
-	// Removed unused File and FileText imports for better performance
+	import File from '~icons/ic/outline-insert-drive-file';
 	import Forward from '~icons/ic/outline-forward';
 	import Inbox from '~icons/ic/outline-inbox';
 	import ListFilter from '~icons/ic/outline-filter-list';
@@ -29,12 +28,12 @@
 	import Users from '~icons/ic/outline-people';
 	import HelpCircle from '~icons/ic/outline-help-outline';
 	import Grid from '~icons/ic/outline-apps';
+	import MoreVertical from '~icons/ic/outline-more-vert';
+	import Menu from '~icons/ic/outline-menu';
 	import ChevronLeft from '~icons/ic/outline-chevron-left';
 	import ChevronRight from '~icons/ic/outline-chevron-right';
-	import MoreVertical from '~icons/ic/outline-more-vert';
 	import Clock from '~icons/ic/outline-schedule';
 	import FolderPlus from '~icons/ic/outline-create-new-folder';
-	import Menu from '~icons/ic/outline-menu';
 
 	// Types
 	type Folder = {
@@ -134,6 +133,7 @@
 		message: "",
 	});
 	let isCollapsed = $state(false);
+	let isLoading = $state(true);
 
 	// Utility functions
 	function getInitials(name: string) {
@@ -144,6 +144,14 @@
 			.toUpperCase()
 			.substring(0, 2);
 	}
+
+	// Initialize component with loading state
+	onMount(() => {
+		// Simulate loading time for better UX
+		setTimeout(() => {
+			isLoading = false;
+		}, 300);
+	});
 
 	// Removed unused utility functions for better performance
 
@@ -328,9 +336,17 @@
 	}
 </script>
 
-<div class="email-app">
-	<!-- Header - Gmail style -->
-	<header class="header">
+{#if isLoading}
+	<div class="email-app loading">
+		<div class="loading-container">
+			<div class="loading-spinner"></div>
+			<div class="loading-text">Loading Gmail...</div>
+		</div>
+	</div>
+{:else}
+	<div class="email-app">
+		<!-- Header - Gmail style -->
+		<header class="header">
 		<div class="header-left">
 			<button class="menu-btn">
 				<Menu />
@@ -703,6 +719,7 @@
 		</div>
 	{/if}
 </div>
+{/if}
 
 <style>
 	.email-app {
@@ -716,6 +733,37 @@
 		/* Performance optimizations */
 		contain: layout style paint;
 		will-change: transform;
+	}
+
+	.email-app.loading {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.loading-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.loading-spinner {
+		width: 32px;
+		height: 32px;
+		border: 3px solid #f3f3f3;
+		border-top: 3px solid #4285f4;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+	}
+
+	.loading-text {
+		color: #5f6368;
+		font-size: 14px;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
 	}
 
 	/* Header Styles */
