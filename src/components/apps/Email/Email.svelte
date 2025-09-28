@@ -336,7 +336,7 @@
 				<Menu />
 			</button>
 			<div class="logo">
-				<img src="/app-icons/mail/32.png" alt="Gmail" class="gmail-logo" loading="eager" decoding="sync" />
+				<img src="/app-icons/email/32.png" alt="Gmail" class="gmail-logo" loading="eager" decoding="sync" />
 				<span class="gmail-text">Gmail</span>
 			</div>
 		</div>
