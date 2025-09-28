@@ -93,6 +93,16 @@ const appstore = create_app_config({
 	resizable: true,
 });
 
+const email = create_app_config({
+	title: 'Gmail',
+	resizable: true,
+
+	height: 750,
+	width: 1200,
+
+	dock_breaks_before: false,
+});
+
 export const apps_config = {
 	finder,
 	wallpapers,
@@ -101,6 +111,7 @@ export const apps_config = {
 	photos,
 	vscode,
 	appstore,
+	email,
 	// safari,
 
 	// 'system-preferences': systemPreferences,

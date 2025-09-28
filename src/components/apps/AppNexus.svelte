@@ -30,6 +30,10 @@
 	{#await import('./Photos/Photos.svelte') then { default: Photos }}
 		<Photos />
 	{/await}
+{:else if app_id === 'email'}
+	{#await import('./Email/Email.svelte') then { default: Email }}
+		<Email />
+	{/await}
 {:else if app_id === 'purus-twitter'}
 	{#await import('./PurusProfile/PurusProfile.svelte') then { default: PurusProfile }}
 		<PurusProfile />
