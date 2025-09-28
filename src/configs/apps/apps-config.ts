@@ -116,8 +116,8 @@ export const apps_config = {
 
 	// 'system-preferences': systemPreferences,
 
-	'purus-twitter': purusTwitter,
-	'view-source': viewSource,
-
-	vercel,
+	// Removed the last three apps from dock:
+	// 'purus-twitter': purusTwitter,
+	// 'view-source': viewSource,
+	// vercel,
 };

@@ -15,10 +15,10 @@ export const apps = $state({
 		email: false,
 		// 'system-preferences': false,
 
-		'purus-twitter': false,
-		'view-source': true,
-
-		vercel: true,
+		// Removed the last three apps from dock:
+		// 'purus-twitter': false,
+		// 'view-source': true,
+		// vercel: true,
 	} as Record<AppID, boolean>,
 
 	active: 'finder' satisfies AppID,
@@ -41,10 +41,10 @@ export const apps = $state({
 		email: 0,
 		// 'system-preferences': 0,
 
-		'purus-twitter': 0,
-		'view-source': 0,
-
-		vercel: 0,
+		// Removed the last three apps from dock:
+		// 'purus-twitter': 0,
+		// 'view-source': 0,
+		// vercel: 0,
 	} as Record<AppID, number>,
 
 	is_being_dragged: false as boolean,
@@ -61,9 +61,9 @@ export const apps = $state({
 		email: false,
 		// 'system-preferences': false,
 
-		'purus-twitter': false,
-		'view-source': false,
-
-		vercel: false,
+		// Removed the last three apps from dock:
+		// 'purus-twitter': false,
+		// 'view-source': false,
+		// vercel: false,
 	} as Record<AppID, boolean>,
 });
